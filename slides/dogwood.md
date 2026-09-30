@@ -34,10 +34,32 @@ are ignored, so they are a good place for speaker notes.
 ## Temporal policy for AI agents
 
 Marc Brooker · Seattle Systems
+
 October 2026
+
 ---
 
-# Agent safety is a box
+# What is Dogwood?
+
+- **A governance language** for AI agents and the tools they call.
+- **Cedar-derived:** familiar `permit` and `forbid`, with `when` and `unless`.
+- **Temporal:** `since`, `formerly`, `once` and windowed aggregations look
+  back over the agent's recent events.
+- **Compiles to Cedar:** temporal facts become `context.*` slots, filled in
+  when the request is evaluated.
+- **Open source:** Apache 2, use it in your own stuff.
+
+```dogwood
+permit(principal, action, resource)
+when { context.input.amount < 1000 }
+when formerly within 1h {
+    Action::"Approve"::request{ approver: context.input.approver }
+};
+```
+
+---
+
+# Why Dogwood?
 <!-- transition: dissolve -->
 
 ```art accent="╔╗╚╝═║╟"
@@ -59,26 +81,6 @@ October 2026
 │        │  Memory  │ └─────┬───┘╚══════╝           │     SaaS     │
 │        └──────────┘       │                       │              │
 └───────────────────────────┘                       └──────────────┘
-```
-
----
-
-# What is Dogwood?
-
-- **A governance language** for AI agents and the tools they call.
-- **Cedar-derived:** familiar `permit` and `forbid`, with `when` and `unless`.
-- **Temporal:** `since`, `formerly`, `once` and windowed aggregations look
-  back over the agent's recent events.
-- **Compiles to Cedar:** temporal facts become `context.*` slots, filled in
-  when the request is evaluated.
-- **Open source:** Apache 2, use it in your own stuff.
-
-```dogwood
-permit(principal, action, resource)
-when { context.input.amount < 1000 }
-when formerly within 1h {
-    Action::"Approve"::request{ approver: context.input.approver }
-};
 ```
 
 ---
