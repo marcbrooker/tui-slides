@@ -1,4 +1,4 @@
-# tvslides
+# tui-slides
 
 Present a Markdown slide deck as a full-screen terminal application in the
 style of Borland's Turbo Vision: a dithered blue-and-grey desktop, a menu bar
@@ -61,8 +61,8 @@ To export the whole deck as a PDF, one slide per page, for handouts or as a
 backup in case the presenting laptop fails:
 
 ```sh
-tvslides --pdf dogwood.pdf slides/dogwood.md
-tvslides --pdf dogwood.pdf --zoom slides/dogwood.md   # slides zoomed
+tui-slides --pdf dogwood.pdf slides/dogwood.md
+tui-slides --pdf dogwood.pdf --zoom slides/dogwood.md   # slides zoomed
 ```
 
 Pages are drawn exactly as `--present` draws them, at 3840x2150 pixels on a
@@ -73,10 +73,10 @@ clock. They are images, so text in the PDF cannot be selected or searched.
 Two other modes are useful while writing a deck:
 
 ```sh
-tvslides --check deck.md           # report slides that will not fit at 80x25
-tvslides --dump 2 deck.md          # print slide 2 as an 80x25 screen of text
-tvslides --dump all --color deck.md | less -R
-tvslides --dump 1 --zoom deck.md   # as it looks zoomed
+tui-slides --check deck.md           # report slides that will not fit at 80x25
+tui-slides --dump 2 deck.md          # print slide 2 as an 80x25 screen of text
+tui-slides --dump all --color deck.md | less -R
+tui-slides --dump 1 --zoom deck.md   # as it looks zoomed
 ```
 
 `r` in the presenter reloads the deck, so you can keep it open in one

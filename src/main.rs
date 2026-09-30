@@ -1,4 +1,4 @@
-//! tvslides: present a Markdown slide deck as a full-screen, Turbo
+//! tui-slides: present a Markdown slide deck as a full-screen, Turbo
 //! Vision-style terminal application.
 
 mod app;
@@ -27,14 +27,14 @@ use theme::Theme;
 use transition::Transition;
 
 const USAGE: &str = "\
-usage: tvslides [--zoom] DECK.md      present the deck in this terminal
-       tvslides --present [--windowed] [--zoom] [--font PATH] DECK.md
+usage: tui-slides [--zoom] DECK.md      present the deck in this terminal
+       tui-slides --present [--windowed] [--zoom] [--font PATH] DECK.md
                                       present the deck in its own window, full
                                       screen on the display it opens on
-       tvslides --pdf OUT.pdf [--zoom] [--font PATH] DECK.md
+       tui-slides --pdf OUT.pdf [--zoom] [--font PATH] DECK.md
                                       export every slide as a page of a PDF
-       tvslides --check DECK.md       report slides that will not fit at 80x25
-       tvslides --dump N|all [--color] [--zoom] DECK.md
+       tui-slides --check DECK.md       report slides that will not fit at 80x25
+       tui-slides --dump N|all [--color] [--zoom] DECK.md
                                       print slide N (1-based) as an 80x25 screen";
 
 enum Mode {
@@ -144,7 +144,7 @@ fn main() -> ExitCode {
         Ok(x) => x,
         Err(e) => {
             if !e.is_empty() {
-                eprintln!("tvslides: {e}");
+                eprintln!("tui-slides: {e}");
             }
             eprintln!("{USAGE}");
             return ExitCode::from(2);
@@ -156,7 +156,7 @@ fn main() -> ExitCode {
     {
         Ok(deck) => deck,
         Err(e) => {
-            eprintln!("tvslides: {}: {e}", path.display());
+            eprintln!("tui-slides: {}: {e}", path.display());
             return ExitCode::FAILURE;
         }
     };
@@ -180,7 +180,7 @@ fn main() -> ExitCode {
     match result {
         Ok(()) => ExitCode::SUCCESS,
         Err(e) => {
-            eprintln!("tvslides: {e}");
+            eprintln!("tui-slides: {e}");
             ExitCode::FAILURE
         }
     }
@@ -277,7 +277,7 @@ fn export_pdf(mut app: App, fonts: raster::Fonts, out: &std::path::Path) -> io::
     }
     std::fs::write(out, pdf.finish())
         .map_err(|e| io::Error::other(format!("{}: {e}", out.display())))?;
-    eprintln!("tvslides: wrote {n} pages to {}", out.display());
+    eprintln!("tui-slides: wrote {n} pages to {}", out.display());
     Ok(())
 }
 

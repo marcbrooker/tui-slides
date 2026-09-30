@@ -85,9 +85,9 @@ impl Presenter {
 
     fn open(&mut self, event_loop: &ActiveEventLoop) -> Result<View, String> {
         let title = if self.app.deck.title.is_empty() {
-            "tvslides".to_string()
+            "tui-slides".to_string()
         } else {
-            format!("{} - tvslides", self.app.deck.title)
+            format!("{} - tui-slides", self.app.deck.title)
         };
         let attributes = Window::default_attributes()
             .with_title(title)

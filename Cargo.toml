@@ -1,5 +1,5 @@
 [package]
-name = "tvslides"
+name = "tui-slides"
 version = "0.1.0"
 edition = "2021"
 description = "Present Markdown slides as a full-screen Turbo Vision-style TUI"

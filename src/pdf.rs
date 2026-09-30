@@ -66,7 +66,7 @@ impl Pdf {
         out.object(
             3,
             &format!(
-                "<< /Title {} /Producer (tvslides) >>",
+                "<< /Title {} /Producer (tui-slides) >>",
                 text_string(&self.title)
             ),
         );

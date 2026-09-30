@@ -88,7 +88,7 @@ fn too_small(buf: &mut Buffer, theme: &Theme) {
     let style = theme.style(Color16::LightGray, Color16::Black);
     fill(buf, area, " ", style);
     let lines = [
-        format!("tvslides needs a {SCREEN_WIDTH}x{SCREEN_HEIGHT} terminal"),
+        format!("tui-slides needs a {SCREEN_WIDTH}x{SCREEN_HEIGHT} terminal"),
         format!("this one is {}x{}", area.width, area.height),
     ];
     let top = area.y + area.height.saturating_sub(2) / 2;

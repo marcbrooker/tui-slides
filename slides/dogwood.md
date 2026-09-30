@@ -5,7 +5,7 @@ transition: none
 +++
 
 <!--
-Example deck for tvslides. Comments that are not directives, like this one,
+Example deck for tui-slides. Comments that are not directives, like this one,
 are ignored, so they are a good place for speaker notes.
 -->
 
