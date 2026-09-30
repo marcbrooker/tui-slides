@@ -1,0 +1,20 @@
+[package]
+name = "tvslides"
+version = "0.1.0"
+edition = "2021"
+description = "Present Markdown slides as a full-screen Turbo Vision-style TUI"
+license = "Apache-2.0"
+repository = "https://github.com/marcbrooker/tui-slides"
+publish = false
+
+[dependencies]
+ab_glyph = "=0.2.32"
+crossterm = "=0.28.1"
+miniz_oxide = "=0.9.1"
+ratatui = "=0.29.0"
+softbuffer = "=0.4.8"
+unicode-width = "=0.2.0"
+winit = "=0.30.13"
+
+[profile.release]
+lto = "thin"
